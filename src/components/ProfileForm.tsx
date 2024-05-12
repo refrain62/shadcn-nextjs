@@ -33,10 +33,15 @@ const ProfileForm = () => {
     },
   })
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-sage and validated.
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const formData = new FormData();
+    formData.append('username', values.username)
+    formData.append('picture', values.picture)
+
+    await fetch('/api/profile', {
+      method: 'post',
+      body: formData,
+    })
   }
 
   return (
