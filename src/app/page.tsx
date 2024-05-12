@@ -10,6 +10,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
 import LoginForm from '@/components/LoginForm'
+import ProfileForm from '@/components/ProfileForm'
 import { Input } from '@/components/ui/input'
 
 export default function Home() {
@@ -46,9 +47,14 @@ export default function Home() {
         </div>
 
         <div className="m-4">
+          <p>ログインフォーム</p>
           <LoginForm />
         </div>
 
+        <div className="m-4">
+          <p>プロファイルフォーム</p>
+          <ProfileForm />
+        </div>
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
             className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"

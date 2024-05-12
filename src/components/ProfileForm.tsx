@@ -19,10 +19,11 @@ import { Input } from '@/components/ui/input'
 // Zodスキーマ
 const formSchema = z.object({
   username: z.string().min(2).max(50),
+  picture: z.any(),
 })
 
-// ログインフォーム
-const LoginForm = () => {
+// フォーム
+const ProfileForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -65,10 +66,32 @@ const LoginForm = () => {
               </FormItem>
             )}
             />
+
+          <FormField
+            control={form.control}
+            name="picture"
+            render={({ field: { value, onChange, ...fieldProps } }) => (
+              <FormItem>
+                <FormLabel>Profile Picture</FormLabel>
+                <FormControl>
+                  <Input
+                    type="file"
+                    {...fieldProps}
+                    accept="image/*"
+                    onChange={(event) => {
+                      onChange(event.target.files && event.target.files);
+                    }}
+                  />
+                </FormControl>
+                <FormDescription>Select Your Profile Picture</FormDescription>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
           <Button type="submit">Submit</Button>
       </form>
     </Form>
   )
 }
 
-export default LoginForm
+export default ProfileForm
