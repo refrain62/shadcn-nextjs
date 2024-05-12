@@ -11,7 +11,9 @@ export default function Home() {
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
         
-        <Button>Click me</Button>
+        <Button variant="outline" size="lg" className="shadow-xl">
+          Click me
+        </Button>
 
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
