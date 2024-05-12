@@ -19,7 +19,9 @@ import { Input } from '@/components/ui/input'
 // Zodスキーマ
 const formSchema = z.object({
   username: z.string().min(2).max(50),
-  picture: z.any(),
+  picture: z.custom<FileList>().refine((file) => file && file.length !== 0, {
+    message: 'ファイルが選択されていません',
+  }).transform((file) => file[0]),
 })
 
 // フォーム
