@@ -1,6 +1,14 @@
 import Image from "next/image";
 
 import { Button } from '@/components/ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 export default function Home() {
   return (
@@ -14,6 +22,26 @@ export default function Home() {
         <Button variant="outline" size="lg" className="shadow-xl" asChild href="/">
           <a className="underline">Click me</a>
         </Button>
+
+        <div className="m-16">
+          <DropdownMenu>
+            <DropdownMenuTrigger asChild>
+              <Button>Open</Button>
+            </DropdownMenuTrigger>
+            
+            <DropdownMenuContent
+              sideOffset={32}
+              align="start"
+              >
+              <DropdownMenuLabel>My Account</DropdownMenuLabel>
+              <DropdownMenuSeparator />
+              <DropdownMenuItem>Profile</DropdownMenuItem>
+              <DropdownMenuItem>Billing</DropdownMenuItem>
+              <DropdownMenuItem>Team</DropdownMenuItem>
+              <DropdownMenuItem>Subscription</DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
 
         <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
           <a
