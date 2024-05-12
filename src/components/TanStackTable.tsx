@@ -4,6 +4,7 @@ import {
   flexRender,
   getCoreRowModel,
   useReactTable,
+  getSortedRowModel,
 } from '@tanstack/react-table';
 import {
   Table,
@@ -56,6 +57,7 @@ const TanStackTable = () => {
     data: posts,
     columns,
     getCoreRowModel: getCoreRowModel(),
+    getSortedRowModel: getSortedRowModel(),
   });
 
   return (
@@ -64,7 +66,10 @@ const TanStackTable = () => {
         {table.getHeaderGroups().map((headerGroup) => (
           <TableRow key={headerGroup.id}>
             {headerGroup.headers.map((header) => (
-              <TableHead key={header.id}>
+              <TableHead
+                key={header.id}
+                onClick={header.column.getToggleSortingHandler()}
+                >
                 {flexRender(
                   header.column.columnDef.header,
                   header.getContext()
@@ -79,7 +84,10 @@ const TanStackTable = () => {
           <TableRow key={row.id}>
             {row.getVisibleCells().map((cell) => (
               <TableCell key={cell.id}>
-                {flexRender(cell.column.columnDef.cell, cell.getContext())}
+                {flexRender(
+                    cell.column.columnDef.cell,
+                    cell.getContext()
+                    )}
               </TableCell>
             ))}
           </TableRow>
