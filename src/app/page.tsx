@@ -12,6 +12,7 @@ import {
 import LoginForm from '@/components/LoginForm'
 import ProfileForm from '@/components/ProfileForm'
 import { Input } from '@/components/ui/input'
+import BasicTable from '@/components/BasicTable'
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
           Get started by editing&nbsp;
           <code className="font-mono font-bold">src/app/page.tsx</code>
         </p>
+
+        <div className="m-4">
+          <BasicTable />
+        </div>
         
         <Button variant="outline" size="lg" className="shadow-xl" asChild href="/">
           <a className="underline">Click me</a>
