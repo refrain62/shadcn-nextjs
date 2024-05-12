@@ -13,6 +13,7 @@ import LoginForm from '@/components/LoginForm'
 import ProfileForm from '@/components/ProfileForm'
 import { Input } from '@/components/ui/input'
 import BasicTable from '@/components/BasicTable'
+import TanStackTable from "@/components/TanStackTable";
 
 export default function Home() {
   return (
@@ -24,6 +25,12 @@ export default function Home() {
         </p>
 
         <div className="m-4">
+          <p>tanstack table</p>
+          <TanStackTable />
+        </div>
+        
+        <div className="m-4">
+          <p>basic table</p>
           <BasicTable />
         </div>
         
